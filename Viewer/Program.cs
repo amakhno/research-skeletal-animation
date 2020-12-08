@@ -10,11 +10,11 @@ namespace Graphics
         {
             using(Viewer viewer = new Viewer())
             {
-                var obj = new WorldObject("Crate");
+                var obj = new WorldObject("Bob");
                 viewer.Objects.Add(obj);
                 viewer.FocusObject = obj;
 
-                viewer.Run(60.0);
+                viewer.Run(165.0);
             }
         }
     }

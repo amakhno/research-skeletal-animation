@@ -114,6 +114,7 @@ namespace Graphics
         {
             currentPose = null;
             currentAnimation = Assets.Retrieve<Animation>(animation);
+            Model.AddAnimation(currentAnimation);
             animationStartTime = DateTime.UtcNow - offset;
         }
 

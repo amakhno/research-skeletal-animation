@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Collections.Generic;
 using OpenTK;
+using System.Globalization;
 
 namespace Graphics.Importers.IdTech4
 {
@@ -106,8 +107,8 @@ namespace Graphics.Importers.IdTech4
                             Parent = parentBoneIndex < 0 ? null : skeleton.Bones[parentBoneIndex]
                         });
 
-                        var position = new Vector3(Convert.ToSingle(parts[3]), Convert.ToSingle(parts[4]), Convert.ToSingle(parts[5]));
-                        var rotation = Util.Math.ComputeW(new Quaternion(Convert.ToSingle(parts[8]), Convert.ToSingle(parts[9]), Convert.ToSingle(parts[10]), 0.0f));
+                        var position = new Vector3(Convert.ToSingle(parts[3], CultureInfo.InvariantCulture), Convert.ToSingle(parts[4], CultureInfo.InvariantCulture), Convert.ToSingle(parts[5], CultureInfo.InvariantCulture));
+                        var rotation = Util.Math.ComputeW(new Quaternion(Convert.ToSingle(parts[8], CultureInfo.InvariantCulture), Convert.ToSingle(parts[9], CultureInfo.InvariantCulture), Convert.ToSingle(parts[10], CultureInfo.InvariantCulture), 0.0f));
 
                         skeleton.BindPose.Set(boneIndex, position, rotation);
                         skeleton.InverseBindPose[boneIndex] = skeleton.BindPose[boneIndex].Inverted();
@@ -154,7 +155,7 @@ namespace Graphics.Importers.IdTech4
                         // vert index ( u v ) startWeight weightCount
                         SkeletalVertex v = new SkeletalVertex()
                         {
-                            TextureCoordinates = new Vector2(Convert.ToSingle(parts[3]), Convert.ToSingle(parts[4])),
+                            TextureCoordinates = new Vector2(Convert.ToSingle(parts[3], CultureInfo.InvariantCulture), Convert.ToSingle(parts[4], CultureInfo.InvariantCulture)),
                             Weights = new List<SkeletalWeight>()
                         };
                         currentMesh.Vertices.Add(v);
@@ -174,8 +175,8 @@ namespace Graphics.Importers.IdTech4
                         SkeletalWeight w = new SkeletalWeight()
                         {
                             BoneIndex = Convert.ToInt32(parts[2]),
-                            Bias = Convert.ToSingle(parts[3]),
-                            Position = new Vector3(Convert.ToSingle(parts[5]), Convert.ToSingle(parts[6]), Convert.ToSingle(parts[7]))
+                            Bias = Convert.ToSingle(parts[3], CultureInfo.InvariantCulture),
+                            Position = new Vector3(Convert.ToSingle(parts[5], CultureInfo.InvariantCulture), Convert.ToSingle(parts[6], CultureInfo.InvariantCulture), Convert.ToSingle(parts[7], CultureInfo.InvariantCulture))
                         };
 
                         int id = Convert.ToInt32(parts[1]);

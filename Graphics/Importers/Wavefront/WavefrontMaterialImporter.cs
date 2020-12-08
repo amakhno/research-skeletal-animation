@@ -52,19 +52,31 @@ namespace Graphics.Importers.Wavefront
                         Assets.Register(currentMaterial);
                     }
                     else if(parts[0] == AmbientColorFlag)
-                        currentMaterial.AmbientColor = new Vector4(Convert.ToSingle(parts[1]), Convert.ToSingle(parts[2]), Convert.ToSingle(parts[3]), 1.0F);
+                        currentMaterial.AmbientColor = new Vector4(
+							Convert.ToSingle(parts[1], System.Globalization.CultureInfo.InvariantCulture),
+							Convert.ToSingle(parts[2], System.Globalization.CultureInfo.InvariantCulture),
+							Convert.ToSingle(parts[3], System.Globalization.CultureInfo.InvariantCulture),
+							1.0F);
                     else if(parts[0] == DiffuseColorFlag)
-                        currentMaterial.DiffuseColor = new Vector4(Convert.ToSingle(parts[1]), Convert.ToSingle(parts[2]), Convert.ToSingle(parts[3]), 1.0F);
+                        currentMaterial.DiffuseColor = new Vector4(
+							Convert.ToSingle(parts[1], System.Globalization.CultureInfo.InvariantCulture),
+							Convert.ToSingle(parts[2], System.Globalization.CultureInfo.InvariantCulture),
+							Convert.ToSingle(parts[3], System.Globalization.CultureInfo.InvariantCulture),
+							1.0F);
                     else if(parts[0] == SpecularColorFlag)
-                        currentMaterial.SpecularColor = new Vector4(Convert.ToSingle(parts[1]), Convert.ToSingle(parts[2]), Convert.ToSingle(parts[3]), 1.0F);
+                        currentMaterial.SpecularColor = new Vector4(
+							Convert.ToSingle(parts[1], System.Globalization.CultureInfo.InvariantCulture),
+							Convert.ToSingle(parts[2], System.Globalization.CultureInfo.InvariantCulture),
+							Convert.ToSingle(parts[3], System.Globalization.CultureInfo.InvariantCulture),
+							1.0F);
                     else if(parts[0] == AlphaFlag)
-                        currentMaterial.Alpha = Convert.ToSingle(parts[1]);
+                        currentMaterial.Alpha = Convert.ToSingle(parts[1], System.Globalization.CultureInfo.InvariantCulture);
                     else if(parts[0] == InverseAlphaFlag)
-                        currentMaterial.Alpha = 1.0f - Convert.ToSingle(parts[1]);
+                        currentMaterial.Alpha = 1.0f - Convert.ToSingle(parts[1], System.Globalization.CultureInfo.InvariantCulture);
                     else if(ShininessFlags.Contains(parts[0]))
-                        currentMaterial.Shininess = Convert.ToSingle(parts[1]);
+                        currentMaterial.Shininess = Convert.ToSingle(parts[1], System.Globalization.CultureInfo.InvariantCulture);
                     else if(parts[0] == IlluminationModeFlag)
-                        currentMaterial.IlluminationMode = Convert.ToInt32(parts[1]);
+                        currentMaterial.IlluminationMode = Convert.ToInt32(parts[1], System.Globalization.CultureInfo.InvariantCulture);
                     else if(parts[0] == AmbientTexture)
                         currentMaterial.AmbientTexture = Assets.RetrieveFile<Texture>(parts[1]);
                     else if(parts[0] == DiffuseTexture)

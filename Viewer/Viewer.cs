@@ -81,6 +81,9 @@ namespace Graphics
             if(Keyboard[Key.Escape])
                 Exit();
 
+            if (Keyboard[Key.J])
+                Objects[0].Animate("Looking");
+
             if(Keyboard[Key.T] && FocusObject != null)
             {
                 if(Keyboard[Key.Up])

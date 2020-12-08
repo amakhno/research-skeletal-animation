@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
-using System.Drawing;
+using SixLabors.ImageSharp.PixelFormats;
+using SixLabors.ImageSharp;
 
 namespace Graphics.Importers
 {
@@ -13,8 +14,10 @@ namespace Graphics.Importers
         {
             string name = Path.GetFileNameWithoutExtension(path);
             string file = Path.GetFileName(path);
+            var textureImage = Image.Load<Rgba32>(path);
 
-            Assets.Register(new Texture(name, file, new Bitmap(path)));
+            // The color is correct if you try to save the texture
+            Assets.Register(new Texture(name, file, textureImage));
         }
     }
 }

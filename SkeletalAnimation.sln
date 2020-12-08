@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30626.31
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viewer", "Viewer\Viewer.csproj", "{6A4652B2-3E9A-4419-892F-1432FB9B8132}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphics", "Graphics\Graphics.csproj", "{6DBEBB14-C14B-4A32-9486-E75E2F46023C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A4652B2-3E9A-4419-892F-1432FB9B8132}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A4652B2-3E9A-4419-892F-1432FB9B8132}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A4652B2-3E9A-4419-892F-1432FB9B8132}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A4652B2-3E9A-4419-892F-1432FB9B8132}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DBEBB14-C14B-4A32-9486-E75E2F46023C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DBEBB14-C14B-4A32-9486-E75E2F46023C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DBEBB14-C14B-4A32-9486-E75E2F46023C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DBEBB14-C14B-4A32-9486-E75E2F46023C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7992C529-88BD-43C4-9421-129F7BB2BA0A}
+	EndGlobalSection
+EndGlobal

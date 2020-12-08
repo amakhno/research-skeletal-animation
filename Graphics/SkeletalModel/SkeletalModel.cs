@@ -61,7 +61,9 @@ namespace Graphics
         }
 
         public override void AddAnimation(Animation animation)
-        {            
+        {
+            if (animationPoses.ContainsKey(animation.Name))
+                return;
             Animations.Add(animation);
 
             // precompute the matrix for each joint for each animation frame 

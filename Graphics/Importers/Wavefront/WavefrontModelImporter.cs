@@ -61,15 +61,22 @@ namespace Graphics.Importers.Wavefront
                     }
                     else if(parts[0] == PositionFlag)
                     {
-                        positions.Add(new Vector3(Convert.ToSingle(parts[1]), Convert.ToSingle(parts[2]), Convert.ToSingle(parts[3])));
+                        positions.Add(new Vector3(
+							Convert.ToSingle(parts[1], System.Globalization.CultureInfo.InvariantCulture),
+							Convert.ToSingle(parts[2], System.Globalization.CultureInfo.InvariantCulture),
+							Convert.ToSingle(parts[3], System.Globalization.CultureInfo.InvariantCulture)));
                     }
                     else if(parts[0] == TextureCoordinatesFlag)
                     {
-                        textureCoordinates.Add(new Vector2(Convert.ToSingle(parts[1]), 1.0f - Convert.ToSingle(parts[2])));
+                        textureCoordinates.Add(new Vector2(Convert.ToSingle(
+							parts[1],
+							System.Globalization.CultureInfo.InvariantCulture), 1.0f - Convert.ToSingle(
+							parts[2],
+							System.Globalization.CultureInfo.InvariantCulture)));
                     }
                     else if(parts[0] == NormalFlag)
                     {
-                        normals.Add(new Vector3(Convert.ToSingle(parts[1]), Convert.ToSingle(parts[2]), Convert.ToSingle(parts[3])));
+                        normals.Add(new Vector3(Convert.ToSingle(parts[1], System.Globalization.CultureInfo.InvariantCulture), Convert.ToSingle(parts[2], System.Globalization.CultureInfo.InvariantCulture), Convert.ToSingle(parts[3], System.Globalization.CultureInfo.InvariantCulture)));
                     }
                     else if(parts[0] == FaceFlag)
                     {

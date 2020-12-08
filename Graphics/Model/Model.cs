@@ -106,44 +106,43 @@ namespace Graphics
         #region Render
 
         public void Render(Matrix4 projection, Matrix4 view, Matrix4 model)
-        {            
+        {
             GL.BindVertexArray(vertexArrayObject);
-
             shaderProgram.SetUniform("Projection", projection);
             shaderProgram.SetUniform("View", view);
             shaderProgram.SetUniform("Model", model);
 
-            foreach(var m in Meshes)
+            foreach(var mesh in Meshes)
             {
-                if(m.RenderMode == RenderMode.None)
+                if (mesh.RenderMode == RenderMode.None)
                     continue;
                 
-                if(m.RenderMode == RenderMode.Texture)
+                if(mesh.RenderMode == RenderMode.Texture)
                 {
                     shaderProgram.SetUniform("Color", TextureColor);
-                    m.Material.DiffuseTexture.Bind();
+                    mesh.Material.DiffuseTexture.Bind();
                     GL.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Fill);
                 }
-                else if(m.RenderMode == RenderMode.Face)
+                else if(mesh.RenderMode == RenderMode.Face)
                 {
                     shaderProgram.SetUniform("Color", FaceColor);
                     Texture.Blank.Bind();
                     GL.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Fill);
                 }
-                else if(m.RenderMode == RenderMode.Edge)
+                else if(mesh.RenderMode == RenderMode.Edge)
                 {
                     shaderProgram.SetUniform("Color", EdgeColor);
                     Texture.Blank.Bind();
                     GL.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Line);
                 }
-                else if(m.RenderMode == RenderMode.Point)
+                else if(mesh.RenderMode == RenderMode.Point)
                 {                    
                     shaderProgram.SetUniform("Color", PointColor);
                     Texture.Blank.Bind();
                     GL.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Point);
                 }
 
-                GL.DrawElements(BeginMode.Triangles, m.ElementCount, DrawElementsType.UnsignedInt, m.ElementOffset * sizeof(float));
+                GL.DrawElements(BeginMode.Triangles, mesh.ElementCount, DrawElementsType.UnsignedInt, mesh.ElementOffset * sizeof(float));
             }
 
             GL.BindVertexArray(0);

@@ -1,16 +1,16 @@
-﻿using System;
-using System.Drawing;
-using OpenTK;
+﻿using OpenTK;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
 
 namespace Graphics.Util
 {
     public static class Bitmap
     {
-        public static System.Drawing.Bitmap CreateBlank(int width, int height, Vector4 color)
+        public static Image<Rgba32> CreateBlank(int width, int height, Vector4 color)
         {
-            System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(1, 1);
-            Color c = Color.FromArgb(Convert.ToInt32(color.W * 255), Convert.ToInt32(color.X * 255), Convert.ToInt32(color.Y * 255), Convert.ToInt32(color.Z * 255));
-            bmp.SetPixel(0, 0, c);
+            Image<Rgba32> bmp = new Image<Rgba32>(1, 1);
+            Color c = new Color(new Rgba32(new System.Numerics.Vector4(color.X, color.Y, color.Z, color.W)));
+            bmp[0, 0] = c;
             return bmp;
         }
     }

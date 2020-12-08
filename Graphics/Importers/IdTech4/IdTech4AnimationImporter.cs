@@ -2,6 +2,7 @@
 using System.IO;
 using System.Collections.Generic;
 using OpenTK;
+using System.Globalization;
 
 namespace Graphics.Importers.IdTech4
 {
@@ -158,8 +159,8 @@ namespace Graphics.Importers.IdTech4
                     else if(collectingPose)
                     {
                         // px py pz rz ry rz
-                        var pos = new Vector3(Convert.ToSingle(parts[0]), Convert.ToSingle(parts[1]), Convert.ToSingle(parts[2]));
-                        var rot = Util.Math.ComputeW(new Quaternion(Convert.ToSingle(parts[3]), Convert.ToSingle(parts[4]), Convert.ToSingle(parts[5]), 0.0f));
+                        var pos = new Vector3(Convert.ToSingle(parts[0], CultureInfo.InvariantCulture), Convert.ToSingle(parts[1], CultureInfo.InvariantCulture), Convert.ToSingle(parts[2], CultureInfo.InvariantCulture));
+                        var rot = Util.Math.ComputeW(new Quaternion(Convert.ToSingle(parts[3], CultureInfo.InvariantCulture), Convert.ToSingle(parts[4], CultureInfo.InvariantCulture), Convert.ToSingle(parts[5], CultureInfo.InvariantCulture), 0.0f));
                         pose.Set(poseBoneIndex, pos, rot);
 
                         SkeletalBone parent = bones[poseBoneIndex].Parent;
